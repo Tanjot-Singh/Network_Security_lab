@@ -12,7 +12,9 @@ def caesar_encrypt(plain_text,shift):
             res += chr(new_pos + base)    
         else :
             res += ch
-    return res 
+    return res
+
+
 def caesar_decrypt(encrypted_text,shift):
     res = ""
     shift = shift%26
@@ -26,7 +28,9 @@ def caesar_decrypt(encrypted_text,shift):
             res += chr(new_pos + base)   
         else :
             res += ch
-    return res     
+    return res
+
+ 
 plain_text = input("enter text : ")
 shift = int(input("enter no of shift : "))
 key = input("enter plain_text key : ")
@@ -34,9 +38,9 @@ encrypted_text = caesar_encrypt(plain_text,shift)
 print(f"encrypted : {encrypted_text}")
 decrypted_text = caesar_decrypt(encrypted_text,shift)
 print(f"decrypted : {decrypted_text}")
+```
 
-
-
+```python
 def vigenere_encrypt(plain_text, key):
 
     result = ""
