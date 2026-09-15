@@ -3,10 +3,14 @@ import hashlib
 
 
 def generate_sha256(filename):
-    with open(filename, "rb") as file:
-        data = file.read()
+    sha256 = hashlib.sha256()
 
-    return hashlib.sha256(data).hexdigest()
+    with open(filename, "rb") as file:
+        while chunk := file.read(8192):
+            sha256.update(chunk)
+
+    return sha256.hexdigest()
+
 
 with open("sample.txt", "w") as file:
     file.write("This is my original file.")
@@ -26,4 +30,5 @@ if new_hash == trusted_hash:
     print("Data Integrity Verified")
 else:
     print("Data has been Modified")
+
 ```
